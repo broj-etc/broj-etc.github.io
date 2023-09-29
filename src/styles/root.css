@@ -18,7 +18,7 @@ body {
       rgba(0, 0, 0, var(--bg-darker-1)),
       rgba(0, 0, 0, var(--bg-darker-1))
     ),
-    rgba(65, 65, 65, 1);
+    rgba(33, 37, 41, 1);
   background-position: center;
   background-size: cover;
   min-width: 400px;
