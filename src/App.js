@@ -1,6 +1,6 @@
 /** Imports */
 /** Basic */
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import * as React from "react";
 /** Custom */
 /** Structures */
@@ -19,8 +19,7 @@ const App = () => {
   document.title = "Broj-etc";
   /** States */
   const [fullImage, setFullImage] = React.useState(false);
-  const [image, setImage] = React.useState(null);
-  const [name, setName] = React.useState("     Placeholder");
+  const [image, setImage] = React.useState(placeholder);
   /** Render Structure */
   return (
     <>
@@ -31,7 +30,7 @@ const App = () => {
       ></Components.FullImage>
       <Navigation />
       <Routes>
-        <Route path="/dev/" element={<Body />} />
+        <Route path="/dev/" element={<Navigate to="/dev/home" />} />
         <Route
           path="/dev/home"
           element={

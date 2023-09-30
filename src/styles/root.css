@@ -21,14 +21,15 @@ body {
     rgba(33, 37, 41, 1);
   background-position: center;
   background-size: cover;
+  margin: 0px !important;
   min-width: 400px;
-  margin: 0;
 }
 /* Content area */
 .upperBody {
   border-right: 1.5px double rgb(155, 155, 155);
   border-left: 1.5px double rgb(155, 155, 155);
   background: rgba(237, 237, 237, 0.05);
+  padding: 16px 0px !important;
   min-height: calc(
     100vh - var(--navigation-height) - var(--top-height) - var(--bottom-height) -
       var(--footer-height)

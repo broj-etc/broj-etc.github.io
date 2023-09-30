@@ -8,16 +8,8 @@ const Body = ({ content }) => {
       <Grid item md={1}></Grid>
       <Grid container item spacing={0} xs={12} md={10} className="upperBody">
         <Grid item xs={1}></Grid>
-        <Grid
-          container
-          item
-          spacing={2}
-          xs={10}
-          alignItems={"center"}
-          className="body"
-        >
+        <Grid container item spacing={2} xs={10} className="body">
           {content}
-          <hr className="space" />
         </Grid>
         <Grid item xs={1}></Grid>
       </Grid>

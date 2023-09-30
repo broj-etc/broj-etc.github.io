@@ -1,25 +1,6 @@
 /* Card styles */
-/* Link card styles */
-.linkcard {
-  background: rgb(85, 85, 85) !important;
-  width: 100%;
+/* TitleCard styles */
+.titleCard {
+  background: rgba(85, 85, 85, 1) !important;
+  margin: 5px;
 }
-/* Rank card styles */
-.rankcard {
-  background: rgb(85, 85, 85) !important;
-}
-.rankcard img {
-  border: 2px double rgba(171, 150, 111, 1);
-  margin: 10px auto 0px auto;
-  width: max-content;
-}
-/* Rank card styles */
-.charactercard {
-  background: rgb(85, 85, 85) !important;
-}
-.charactercard img {
-  border: 2px double rgba(171, 150, 111, 1);
-  margin: 0px auto 0px auto;
-  width: calc(100% - 4px);
-}
-/* Rank card styles */
