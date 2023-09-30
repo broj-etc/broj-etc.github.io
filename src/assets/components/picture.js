@@ -7,40 +7,38 @@ import {
     Typography,
 } from "@mui/material";
 import * as React from "react";
-import placeholder from "../pics/placeholders/imgPlaceholder.png";
 /** Variables */
 /** Load images */
 /** Variables */
 /** */
-const FullImage = ({image}) => {
+const FullImage = ({image, fullImage, setFullImage}) => {
     /** States */
     /** */
-    const [open, setOpen] = React.useState(true);
     /** Variables */
     return (
       <>
         <Modal
-          open={open}
-          onClose={() => setOpen(false)}
+          open={fullImage}
+          onClose={() => setFullImage(false)}
           aria-labelledby=""
           aria-describedby="">
-            <Card className="modal" onClick={(e) => {setOpen(false)}}>
-                <CardActionArea>
-                    <CardMedia
-                    component="img"
-                    image={placeholder}
-                    alt="{props.name}"
-                    />
-                    <CardContent>
-                    <Typography variant="h3" className="h1">
-                        First textfield
-                    </Typography>
-                    <Typography variant="h3" className="h2">
-                        Another textfield
-                    </Typography>
-                    </CardContent>
-                </CardActionArea>
-            </Card>
+          <>
+            <Typography className="modalCount">1 / 1</Typography>
+            <Typography className="modalLeft">←</Typography>
+              <Card className="modal" onClick={(e) => {setFullImage(false)}}>
+                  <CardActionArea>
+                      <CardMedia
+                      component="img"
+                      image={image}
+                      alt="{props.name}"
+                      />
+                      <CardContent>
+                      </CardContent>
+                  </CardActionArea>
+              </Card>
+            <Typography className="modalClose" onClick={(e) => {setFullImage(false)}}>X</Typography>
+            <Typography className="modalRight">→</Typography>
+          </>
         </Modal>
       </>
     );
