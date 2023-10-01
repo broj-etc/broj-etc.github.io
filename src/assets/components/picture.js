@@ -24,8 +24,8 @@ const FullImage = ({ image, fullImage, setFullImage }) => {
         aria-describedby=""
       >
         <>
-          <Typography className="modalCount">1 / 1</Typography>
-          <Typography className="modalLeft">←</Typography>
+          {/**<Typography className="modalCount">1 / 1</Typography>*/}
+          {/**<Typography className="modalLeft">←</Typography>*/}
           <Card
             className="modal"
             onClick={(e) => {
@@ -45,7 +45,7 @@ const FullImage = ({ image, fullImage, setFullImage }) => {
           >
             X
           </Typography>
-          <Typography className="modalRight">→</Typography>
+          {/**<Typography className="modalRight">→</Typography>*/}
         </>
       </Modal>
     </>

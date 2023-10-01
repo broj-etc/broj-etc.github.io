@@ -9,10 +9,10 @@ const Left = [
     subMenu: [],
   },
   {
-    title: "left",
+    title: "dnd",
     subMenu: [
       {
-        title: "submenu first layer",
+        title: "characters",
         subMenu: [
           {
             title: "submenu second layer",

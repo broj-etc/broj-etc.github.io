@@ -52,3 +52,13 @@
   left: 0px;
   top: 0px;
 }
+/**/
+.modalForm {
+  border-right: 1.5px double rgb(155, 155, 155);
+  border-left: 1.5px double rgb(155, 155, 155);
+  background: rgba(33, 37, 41, 1);
+  min-height: calc(
+    100vh - var(--navigation-height) - var(--top-height) - var(--bottom-height) -
+      var(--footer-height)
+  );
+}

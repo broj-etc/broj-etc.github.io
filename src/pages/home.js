@@ -20,13 +20,17 @@ const cardContent = [
   { name: "Test Image 15", image: "https://picsum.photos/300/300?random=15" },
 ];
 /** Structure of the body */
-const Home = ({ content, setImage, setFullImage }) => {
+const Home = ({ setImage, setFullImage }) => {
   return (
     <>
       {cardContent.map((item, i) => (
         <TitleCard
           key={"TitleCard-" + item.name + "-" + i}
-          item={item}
+          setFullImage={setFullImage}
+          deceased={item.deceased}
+          setImage={setImage}
+          image={item.image}
+          title={item.name}
         ></TitleCard>
       ))}
     </>

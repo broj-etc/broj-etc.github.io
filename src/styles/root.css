@@ -12,6 +12,15 @@
   padding: 0 !important;
   min-height: auto !important;
 }
+td {
+  border: none !important;
+}
+td p {
+  color: rgba(255,255,255,1) !important;
+}
+td label {
+  color: rgba(255,255,255,1) !important;
+}
 /* Body element */
 body {
   background: linear-gradient(
@@ -49,3 +58,15 @@ hr.mediator {
   opacity: 0;
   margin: 0;
 }
+/**/
+.hide {
+  display: none !important;
+}
+.show {
+  transform: rotate(10deg) scale(0.95);
+  object-fit: contain !important;
+  position: absolute;
+  top:0;
+}
+/**/
+

@@ -10,6 +10,7 @@ import {
 import * as React from "react";
 /** Variables */
 /** Load images */
+import deceasedImg from "../pics/deceased.png";
 /** Variables */
 /** */
 const Card1 = ({ image }) => {
@@ -48,19 +49,20 @@ const Card1 = ({ image }) => {
   );
 };
 /** */
-const TitleCard = ({ item }) => {
+const TitleCard = ({ setFullImage, deceased=false, setImage, image, title }) => {
   /** States */
   /** */
   /** Variables */
   return (
     <>
       <Grid item xs={12} sm={6} md={4} lg={3} xl={2.4}>
-        <Card className="titleCard" onClick={(e) => {}} key={item.name}>
+        <Card className="titleCard" onClick={(e) => {}} >
           <CardActionArea>
-            <CardMedia component="img" image={item.image} alt="{props.name}" />
+            <CardMedia component="img" image={image} alt="{props.name}" onClick={(e) => {setFullImage(true);setImage(image)}}/>
+            <CardMedia component="img" image={deceasedImg} alt="{props.name}" className={deceased === false ? "hide" : "show"} onClick={(e) => {setFullImage(true);setImage(image)}} />
             <CardContent>
               <Typography variant="h3" className="h1">
-                {item.name}
+                {title}
               </Typography>
             </CardContent>
           </CardActionArea>
