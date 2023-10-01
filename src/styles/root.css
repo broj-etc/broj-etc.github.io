@@ -17,9 +17,19 @@ td {
 }
 td p {
   color: rgba(255,255,255,1) !important;
+  font-weight: 700 !important;
+  font-size: large !important;
 }
 td label {
   color: rgba(255,255,255,1) !important;
+}
+td input {
+  color: rgba(255,255,255,1) !important;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 /* Body element */
 body {
