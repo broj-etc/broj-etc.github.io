@@ -1,0 +1,82 @@
+/* CSS Variables */
+:root {
+  --navigation-height: 50px;
+  --footer-height: var(--navigation-height);
+  --bottom-height: 0px;
+  --bg-darker-1: 0.7;
+  --bg-darker-2: 0.9;
+  --top-height: 0px;
+}
+/* Root defaults */
+.css-hyum1k-MuiToolbar-root {
+  padding: 0 !important;
+  min-height: auto !important;
+}
+td {
+  border: none !important;
+}
+td p {
+  color: rgba(255,255,255,1) !important;
+  font-weight: 700 !important;
+  font-size: large !important;
+}
+td label {
+  color: rgba(255,255,255,1) !important;
+}
+td input {
+  color: rgba(255,255,255,1) !important;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+/* Body element */
+body {
+  background: linear-gradient(
+      rgba(0, 0, 0, var(--bg-darker-1)),
+      rgba(0, 0, 0, var(--bg-darker-1))
+    ),
+    rgba(33, 37, 41, 1);
+  background-position: center;
+  background-size: cover;
+  margin: 0px !important;
+  min-width: 400px;
+}
+/* Content area */
+.upperBody {
+  border-right: 1.5px double rgb(155, 155, 155);
+  border-left: 1.5px double rgb(155, 155, 155);
+  background: rgba(237, 237, 237, 0.05);
+  padding: 16px 0px !important;
+  min-height: calc(
+    100vh - var(--navigation-height) - var(--top-height) - var(--bottom-height) -
+      var(--footer-height)
+  );
+  max-width: 1920px;
+  padding: 0;
+}
+/* Horizontal line styles */
+/* Make horizontal line invisible */
+hr.space {
+  opacity: 0;
+}
+/* Make horizontal line as appbar link mediator */
+hr.mediator {
+  display: flex;
+  width: 100%;
+  opacity: 0;
+  margin: 0;
+}
+/**/
+.hide {
+  display: none !important;
+}
+.show {
+  transform: rotate(10deg) scale(0.95);
+  object-fit: contain !important;
+  position: absolute;
+  top:0;
+}
+/**/
+
