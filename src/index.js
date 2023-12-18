@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import React from "react";
 /** Styles */
-import "./styles/initialize.css";
+import "./styles/style.css";
 /** Custom */
 import App from "./App";
 /** */

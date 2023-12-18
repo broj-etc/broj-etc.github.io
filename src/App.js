@@ -1,65 +1,92 @@
-/** Imports */
-/** Basic */
-import { Routes, Route, Navigate } from "react-router-dom";
-import * as React from "react";
-/** Custom */
-/** Structures */
-import * as ImageComponents from "./assets/components/picture";
-import Navigation from "./structures/navigation";
-import Footer from "./structures/footer";
-import Body from "./structures/body";
-/** Pages */
-import Home from "./pages/home";
-/** Components */
-import * as Components from "./assets/components/components";
-/** Pictures */
-import placeholder from "./assets/pics/placeholders/imgPlaceholder.png";
-import DNDCharacters from "./pages/dnd-characters";
-/** Define App structure */
-const App = () => {
-  /** Website title / Tab name */
-  document.title = "Broj-etc";
-  /** States */
-  const [fullImage, setFullImage] = React.useState(false);
-  const [addCharacter, setAddCharacter] = React.useState(false);
-  const [image, setImage] = React.useState(placeholder);
-  /** Render Structure */
+import React, { useState, useEffect } from "react";
+
+export function App() {
+  const now = new Date().toLocaleTimeString();
+  const [time, setTime] = useState(now);
+  setInterval(updatetime, 5000);
+
+  function updatetime() {
+    const newtime = new Date().toLocaleTimeString();
+    setTime(newtime);
+  }
+
+  const [photos, setPhotos] = useState([]);
+  useEffect(() => {
+    fetch("https://api.broject.cc/v1/locker")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setPhotos(data.Result.Data);
+        //console.log(data.Result.Data);
+      });
+  }, [time]);
+
   return (
     <>
-      <ImageComponents.FullImage
-        image={image}
-        fullImage={fullImage}
-        setFullImage={setFullImage}
-      />
-      <Components.AddCharacter
-        addCharacter={addCharacter}
-        setAddCharacter={setAddCharacter}
-      />
-      <Navigation />
-      <Routes>
-        <Route path="/dev/" element={<Navigate to="/dev/home" />} />
-        <Route
-          path="/dev/home"
-          element={
-            <Body
-              content={<Home setFullImage={setFullImage} setImage={setImage} />}
-            />
+      <div className="wrapper" style={{ marginTop: 150 }}>
+        {photos.map((photo, index) => {
+          if (photo.Locker.Size === "screen")
+            return (
+              <div
+                key={photo.Locker.Num}
+                className={photo.Locker.Size}
+                style={{
+                  border: "solid black",
+                  fontWeight: "bold",
+                }}
+              ></div>
+            );
+          if (photo.Locker.State) {
+            return (
+              <div
+                key={photo.Locker.Num}
+                className={photo.Locker.Size}
+                onClick={() => {
+                  fetch(
+                    "https://api.broject.cc/v1/locker/" + photo.Locker.Num,
+                    {
+                      method: "PATCH",
+                    },
+                  );
+                  /*setTimeout(() => {
+                    window.location.reload(false);
+                  }, 100);*/
+                }}
+                style={{
+                  border: "solid black",
+                  fontWeight: "bold",
+                  background: "red",
+                  color: "white",
+                }}
+              >
+                {photo.Char} {photo.Locker.Num}
+              </div>
+            );
           }
-        />
-        <Route path="/dev/dnd" element={<Navigate to="/dev/characters" />} />
-        <Route
-          path="/dev/characters"
-          element={
-            <Body
-              content={<DNDCharacters setFullImage={setFullImage} setImage={setImage} setAddCharacter={setAddCharacter} />}
-            />
-          }
-        />
-        <Route path="*" element={<Body />} />
-      </Routes>
-      <Footer />
+          return (
+            <div
+              key={photo.Locker.Num}
+              className={photo.Locker.Size}
+              onClick={() => {
+                fetch("https://api.broject.cc/v1/locker/" + photo.Locker.Num, {
+                  method: "PATCH",
+                });
+                /*setTimeout(() => {
+                  window.location.reload(false);
+                }, 100);*/
+              }}
+              style={{
+                fontWeight: "bold",
+                border: "solid",
+              }}
+            >
+              {photo.Char} {photo.Locker.Num}
+            </div>
+          );
+        })}
+      </div>
     </>
   );
-};
-/** Exports */
+}
 export default App;
